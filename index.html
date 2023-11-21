@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherMingle</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/media-query.css" />
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#/current-location" class="logo">
+                <img src="./assets/images/weather-forecast.png" width="364" height="58" alt="logo" />
+            </a>
+
+            <div class="search-view" data-search-view>
+                <div class="search-wrapper">
+                    <input autocomplete="off" type="search" name="search" placeholder="Search city ..."
+                        class="search-field" data-search-field />
+                    <span class="m-icon leading-icon">search</span>
+                    <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
+                        <span class="m-icon">arrow_back</span>
+                    </button>
+                </div>
+
+                <div class="search-result" data-search-result>
+
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
+                    <span class="m-icon icon">search</span>
+                </button>
+                <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
+                    <span class="m-icon">my_location</span>
+                    <span id="current-location-span" class="span">Current Location</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article class="container" data-container>
+            <div class="content-left">
+                <section class="section current-weather" aria-label="current weather" data-current-weather>
+                    <div class="card card-lg current-weather-card">
+                    </div>
+                </section>
+                <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast></section>
+            </div>
+
+            <div class="content-right">
+                <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
+                    <div class="card card-lg">
+                    </div>
+                </section>
+                <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast>
+
+                </section>
+
+                <footer class="footer">
+                    <!-- <p class="body-3">
+                        Copyrights 2023 Zakaria Rdouane. All Rights Reserved
+                    </p> -->
+                    <p class="body-3">
+                        <!-- Copyrights 2023 Zakaria Rdouane. All Rights Reserved<br> -->
+                        <a href="https://github.com/zrdouane" target="_blank">Copyrights 2023 Zakaria Rdouane. All Rights Reserved<br></a>
+                    </p>
+                    
+                    <p class="body-3">
+                        Powered By
+                        <a href="https://openweathermap.org/api" title="Free Open Weather API" target="_blank"
+                            rel="noopener">
+                            <img src="./assets/images/openweather.png" width="150" height="30" loading="lazy"
+                                alt="OpenWeather" srcset="" />
+                        </a>
+                    </p>
+                </footer>
+            </div>
+
+            <div class="loading" data-loading>
+
+            </div>
+        </article>
+    </main>
+
+    <section class="error-content" data-error-content>
+        <h2 class="heading">404</h2>
+        <p class="body-1">Page not found!</p>
+        <a href="#/current-location" class="btn-primary">
+            <span class="span">Go Home</span>
+        </a>
+    </section>
+
+    <script type="module" src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/route.js"></script>
+</body>
+
+</html>
