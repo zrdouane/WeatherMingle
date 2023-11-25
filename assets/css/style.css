@@ -121,7 +121,7 @@ html {
 }
 
 body {
-    background-image: url(../images/ciel.avif);
+    background-color: var(--background);
     color: var(--on-background);
     font-size: var(--body-3);
     overflow: hidden;
@@ -180,7 +180,7 @@ body {
     margin-inline: auto;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .icon-btn {
@@ -495,8 +495,7 @@ article.container {
     height: 100%;
     overflow-y: auto;
     overflow-y: overlay;
-    background-image: url(../images/ciel.avif);
-    /** ana m9awd **/
+    background-color: #332b1f;
 }
 
 article.container::-webkit-scrollbar-thumb {
@@ -709,14 +708,19 @@ article.container::before {
     min-width: 110px;
     flex: 1 1 100%;
 }
+/* edit here */
+/* .slider-card {
+    text-align: center;
+    background-color: brown;
 
+
+} */
 .slider-card {
     text-align: center;
-    border-radius: var(--radius-28);
+    /* border-radius: var(--radius-28);
     padding: 20px;
     background-color: rgb(14, 12, 12);
-    opacity: 0.7;
-
+    opacity: 0.7; */
 
 }
 
