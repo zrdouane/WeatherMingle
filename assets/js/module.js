@@ -1,4 +1,7 @@
+// Enforces stricter parsing and error handling in JavaScript
 "use strict";
+
+// Array of abbreviated week day names
 export const weekDayNames = [
   "Sun",
   "Mon",
@@ -9,6 +12,7 @@ export const weekDayNames = [
   "Sat",
 ];
 
+// Array of abbreviated month names
 export const monthsNames = [
   "Jan",
   "Feb",
@@ -24,6 +28,7 @@ export const monthsNames = [
   "Dec",
 ];
 
+// Function to format date based on Unix timestamp and timezone
 export const getDate = function (dateUnix, timezone) {
   const date = new Date((dateUnix + timezone) * 1000);
   const weekDayName = weekDayNames[date.getUTCDay()];
@@ -31,6 +36,7 @@ export const getDate = function (dateUnix, timezone) {
   return `${weekDayName} ${date.getUTCDate()} ${monthName}`;
 };
 
+// Function to format time based on Unix timestamp and timezone
 export const getTime = function (dateUnix, timezone) {
   const date = new Date((dateUnix + timezone) * 1000);
   const hours = date.getUTCHours();
@@ -40,6 +46,7 @@ export const getTime = function (dateUnix, timezone) {
   return `${hours % 12 || 12}:${minutes} ${period}`;
 };
 
+// Function to get hours based on Unix timestamp and timezone
 export const getHours = function (dateUnix, timezone) {
   const date = new Date((dateUnix + timezone) * 1000);
   const hours = date.getUTCHours();
@@ -47,11 +54,13 @@ export const getHours = function (dateUnix, timezone) {
   return `${hours % 12 || 12}${period}`;
 };
 
+// Function to convert meters per second to kilometers per hour
 export const mpsToKmh = (mps) => {
   const mph = mps * 3600;
   return mph / 1000;
 };
 
+// Object mapping Air Quality Index (AQI) values to corresponding descriptions
 export const aqiText = {
   1: {
     level: "Good",
@@ -61,12 +70,12 @@ export const aqiText = {
   2: {
     level: "Fair",
     message:
-      "Air quality is acceptable; however, for some pollutants there may be a moderate health concert for a very small number of people  who are unusually sensitive to air pollution",
+      "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution",
   },
   3: {
     level: "Moderate",
     message:
-      "Members of sensitive groups may experience health efferts, The general public is not likely to be affected",
+      "Members of sensitive groups may experience health effects; the general public is not likely to be affected",
   },
   4: {
     level: "Poor",
@@ -76,6 +85,6 @@ export const aqiText = {
   5: {
     level: "Very Poor",
     message:
-      "Health warnings of emergency conditions, The entire population is more likely to be affected",
+      "Health warnings of emergency conditions; the entire population is more likely to be affected",
   },
 };

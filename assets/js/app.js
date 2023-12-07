@@ -1,22 +1,30 @@
+// Enforces stricter parsing and error handling in JavaScript
 "use strict";
+
+// Importing functions and objects from external modules
 import { fetchData, url } from "./api.js";
 import * as module from "./module.js";
 
+// Function to add an event listener to multiple elements
 const addEventOnElements = function (elements, eventType, callback) {
   for (const element of elements) {
     element.addEventListener(eventType, callback);
   }
 };
 
+// DOM elements selection for search functionality
 const searchView = document.querySelector("[data-search-view]");
 const searchTogglers = document.querySelectorAll("[data-search-toggler]");
 const toggleSearch = () => searchView.classList.toggle("active");
 addEventOnElements(searchTogglers, "click", toggleSearch);
 
+// DOM elements for search field and search results
 const searchField = document.querySelector("[data-search-field]");
 const searchResult = document.querySelector("[data-search-result]");
 let searchTimeout = null;
 const searchTimeoutDuration = 500;
+
+// Event listener for search field input
 searchField.addEventListener("input", function () {
   searchTimeout ?? clearTimeout(searchTimeout);
   if (!searchField.value) {
@@ -66,12 +74,15 @@ searchField.addEventListener("input", function () {
   }
 });
 
+// DOM elements for weather display
 const container = document.querySelector("[data-container]");
 const loading = document.querySelector("[data-loading]");
 const currentLocationBtn = document.querySelector(
   "[data-current-location-btn]"
 );
 const errorContent = document.querySelector("[data-error-content]");
+
+// Function to update weather display based on latitude and longitude
 export const updateWeather = function (lat, lon) {
   loading.style.display = "grid";
   container.style.overflowY = "hidden";
@@ -80,19 +91,26 @@ export const updateWeather = function (lat, lon) {
   const currentWeatherSection = document.querySelector(
     "[data-current-weather]"
   );
+
+  // Selecting DOM elements for different weather sections
   const highlightSection = document.querySelector("[data-highlights]");
   const hourlySection = document.querySelector("[data-hourly-forecast]");
   const forecastSection = document.querySelector("[data-5-day-forecast]");
+
+  // Clearing existing content in weather sections
   currentWeatherSection.innerHTML = "";
   highlightSection.innerHTML = "";
   hourlySection.innerHTML = "";
   forecastSection.innerHTML = "";
+
+  // Disable current location button based on the URL hash
   if (window.location.hash === "#/current-location") {
     currentLocationBtn.setAttribute("disabled", "");
   } else {
     currentLocationBtn.removeAttribute("disabled");
   }
 
+  // Fetching current weather data
   fetchData(url.currentWeather(lat, lon), function (currentWeather) {
     const {
       weather,
@@ -127,11 +145,14 @@ export const updateWeather = function (lat, lon) {
             </li>
         </ul>
     `;
+
+    // Fetching air pollution data
     fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`;
       currentWeatherSection.appendChild(card);
     });
 
+    // Fetching weather forecast data
     fetchData(url.airPollution(lat, lon), function (airPollution) {
       const [
         {
@@ -339,4 +360,5 @@ export const updateWeather = function (lat, lon) {
   });
 };
 
+// Function to handle 404 errors
 export const error404 = () => (errorContent.style.display = "flex");

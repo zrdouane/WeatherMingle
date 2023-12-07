@@ -2,45 +2,57 @@
 <html lang="en">
 
 <head>
+    <!-- Set character set and viewport for responsiveness -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeatherMingle</title>
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon" />
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/media-query.css" />
-
 </head>
 
 <body>
+    <!-- Header Section -->
     <header class="header">
         <div class="container">
+            <!-- Logo -->
             <a href="#/current-location" class="logo">
                 <img src="./assets/images/weather-forecast.png" width="364" height="58" alt="logo" />
             </a>
 
+            <!-- Search View -->
             <div class="search-view" data-search-view>
                 <div class="search-wrapper">
+                    <!-- Search Input -->
                     <input autocomplete="off" type="search" name="search" placeholder="Search city ..."
                         class="search-field" data-search-field />
+                    <!-- Search Icon -->
                     <span class="m-icon leading-icon">search</span>
+                    <!-- Close Search Button -->
                     <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
                         <span class="m-icon">arrow_back</span>
                     </button>
                 </div>
 
+                <!-- Search Results -->
                 <div class="search-result" data-search-result>
 
                 </div>
             </div>
 
+            <!-- Header Actions -->
             <div class="header-actions">
+                <!-- Open Search Button -->
                 <button class="icon-btn has-state" aria-label="open search" data-search-toggler>
                     <span class="m-icon icon">search</span>
                 </button>
+                <!-- Current Location Button -->
                 <a href="#/current-location" class="btn-primary has-state" data-current-location-btn>
                     <span class="m-icon">my_location</span>
                     <span id="current-location-span" class="span">Current Location</span>
@@ -49,35 +61,39 @@
         </div>
     </header>
 
+    <!-- Main Content Section -->
     <main>
         <article class="container" data-container>
             <div class="content-left">
+                <!-- Current Weather Section -->
                 <section class="section current-weather" aria-label="current weather" data-current-weather>
                     <div class="card card-lg current-weather-card">
                     </div>
                 </section>
+                <!-- 5-Day Forecast Section -->
                 <section class="section forecast" aria-labelledby="forecast-label" data-5-day-forecast></section>
             </div>
 
             <div class="content-right">
+                <!-- Highlights Section -->
                 <section class="section highlights" aria-labelledby="highlights-label" data-highlights>
                     <div class="card card-lg">
                     </div>
                 </section>
+                <!-- Hourly Forecast Section -->
                 <section class="section hourly-forecast" aria-label="hourly forecast" data-hourly-forecast>
 
                 </section>
 
+                <!-- Footer Section -->
                 <footer class="footer">
-                    <!-- <p class="body-3">
-                        Copyrights 2023 Zakaria Rdouane. All Rights Reserved
-                    </p> -->
                     <p class="body-3">
-                        <!-- Copyrights 2023 Zakaria Rdouane. All Rights Reserved<br> -->
+                        <!-- Copyright Information -->
                         <a href="https://github.com/zrdouane" target="_blank">Copyrights 2023 Zakaria Rdouane. All Rights Reserved<br></a>
                     </p>
-                    
+
                     <p class="body-3">
+                        <!-- Powered By OpenWeather -->
                         Powered By
                         <a href="https://openweathermap.org/api" title="Free Open Weather API" target="_blank"
                             rel="noopener">
@@ -88,12 +104,14 @@
                 </footer>
             </div>
 
+            <!-- Loading Indicator -->
             <div class="loading" data-loading>
 
             </div>
         </article>
     </main>
 
+    <!-- Error Section -->
     <section class="error-content" data-error-content>
         <h2 class="heading">404</h2>
         <p class="body-1">Page not found!</p>
@@ -102,6 +120,7 @@
         </a>
     </section>
 
+    <!-- JavaScript Modules -->
     <script type="module" src="./assets/js/app.js"></script>
     <script type="module" src="./assets/js/route.js"></script>
 </body>
